@@ -1,0 +1,16 @@
+clear;
+clc;
+G=zpk(-1,[0 -3 -5],50);
+G=tf(G);
+bode(G);
+grid on;
+title('system 1')
+[Gm,pm,wcq,wcqerf]=margin(G);
+w=0:0.01:20;
+[M, F, W]=bode(G,w);
+for k=1:1:length(M)
+end
+if 20*log10(M(k))+7<=0
+    Mag=20*log10(M(k));
+wBW=w(k);
+end

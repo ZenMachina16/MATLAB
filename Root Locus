@@ -1,0 +1,12 @@
+clc;
+clear all;
+close all;
+disp('Transfer Function :-');
+G = tf([1],[1 2 2 0]);
+rlocus(G)
+grid("on")
+Gm= margin(G);
+breakaway_points = rlocus(G,-1);
+centroid = sum(pole(G))/length(pole(G));
+fprintf('Breakaway Points: %.4f,%.4f\n',breakaway_points(1),breakaway_points(2));
+fprintf('Centroid %.4f\n',centroid);

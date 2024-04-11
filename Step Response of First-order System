@@ -1,0 +1,24 @@
+clc;
+close all;
+T=0.9;
+Num=1;
+Den=[T 1];
+Gs=tf(Num,Den)
+%step Response
+figure(1)
+step(Gs) %will plot unit step response
+grid;
+xlabel('t')
+ylabel('Y(t)')
+title("Step response of first order system1")
+t = 0:0.1:4.5;
+yt = zeros(size(t));
+for i= 1:length(t)
+    yt(i)= -1-exp(-t(i)/T);
+end
+figure(2)
+plot(t,yt)
+grid;
+xlabel('t');
+ylabel('y(t)');
+title("Step response of first order system2")
